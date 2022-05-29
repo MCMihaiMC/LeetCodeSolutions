@@ -30,13 +30,6 @@ namespace LeetCodeSolutions
             if(nums[nums.Length - 1] == val)
                 Array.Resize(ref nums, nums.Length - 1);
 
-            //int[] expectedNums = new int[nums.Length];
-
-            //for(int i = 0; i < nums.Length; i++)
-            //{
-            //    expectedNums[i] = nums[i];
-            //}
-
             return nums.Length;
         }
 
