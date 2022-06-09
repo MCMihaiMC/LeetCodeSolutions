@@ -31,8 +31,41 @@
         }
 
 
-        #endregion  
+        #endregion
 
+        public int[] ReplaceElements(int[] arr)
+        {
 
+            if (arr.Length == 1)
+                return new int[] { -1 };
+
+            int[] baseArr = new int[arr.Length];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                baseArr[i] = arr[i];
+            }
+
+            int baseArrIndex = arr.Length - 1;
+            int arrIndex = arr.Length - 1;
+
+            while (baseArrIndex > 0 )
+            {
+                if(baseArr[baseArrIndex] > baseArr[baseArrIndex-1] )
+                {
+                    arr[arrIndex - 1] = baseArr[baseArrIndex];
+                    arrIndex--;
+                    baseArrIndex--;
+                }
+                else
+                {
+                    arr[arrIndex] = baseArr[baseArrIndex];
+                    arrIndex--;
+                    baseArrIndex--;
+                }
+
+            }
+
+            return null;
+        }
     }
 }

@@ -21,5 +21,24 @@ namespace LeetCodeSolutions.Tests
             }
         }
 
+        [Theory]
+        [InlineData(
+          new int[] { 17, 18, 5, 4, 6, 1 },
+          new int[] { 18, 6, 6, 6, 1, -1 })]
+        [InlineData(
+          new int[] { 400 },
+          new int[] { -1 })]
+        public void ReplaceElementsTest(int[] arr, int[] expected)
+        {
+            //Arrange & Act
+            var sut = new InPlace();
+            int[] result = sut.ReplaceElements(arr);
+
+            //Assert
+            for (int i = 0; i < expected.Length; i++)
+            {
+                Assert.Equal(expected[i], result[i]);
+            }
+        }
     }
 }
