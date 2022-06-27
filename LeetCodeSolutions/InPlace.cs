@@ -1,4 +1,7 @@
-﻿namespace LeetCodeSolutions
+﻿using System;
+using System.Linq;
+
+namespace LeetCodeSolutions
 {
     public class InPlace
     {
@@ -35,37 +38,33 @@
 
         public int[] ReplaceElements(int[] arr)
         {
+            var maxValue = 0;
 
-            if (arr.Length == 1)
-                return new int[] { -1 };
-
-            int[] baseArr = new int[arr.Length];
-            for (int i = 0; i < arr.Length; i++)
+            for (int i = arr.Length-1; i >= 0; i--)
             {
-                baseArr[i] = arr[i];
-            }
-
-            int baseArrIndex = arr.Length - 1;
-            int arrIndex = arr.Length - 1;
-
-            while (baseArrIndex > 0 )
-            {
-                if(baseArr[baseArrIndex] > baseArr[baseArrIndex-1] )
+                if (arr[i] > maxValue)
                 {
-                    arr[arrIndex - 1] = baseArr[baseArrIndex];
-                    arrIndex--;
-                    baseArrIndex--;
+                    int tempValue = arr[i];
+
+                    if(maxValue == 0)
+                    {
+                        arr[i] = -1;
+                    }
+                    else
+                    {
+                        arr[i] = maxValue;
+                    }
+
+                    maxValue = tempValue;
                 }
                 else
                 {
-                    arr[arrIndex] = baseArr[baseArrIndex];
-                    arrIndex--;
-                    baseArrIndex--;
+                    arr[i] = maxValue;
                 }
-
             }
 
-            return null;
+            return arr;
+
         }
     }
 }
