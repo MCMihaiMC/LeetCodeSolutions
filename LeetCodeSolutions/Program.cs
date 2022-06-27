@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LeetCodeSolutions
 {
@@ -7,6 +8,7 @@ namespace LeetCodeSolutions
         static void Main(string[] args)
         {
             Console.WriteLine("LeetCode SOLUTIONS !");
+
         }
     }
 }
