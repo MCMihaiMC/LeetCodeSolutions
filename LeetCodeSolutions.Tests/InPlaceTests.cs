@@ -40,5 +40,46 @@ namespace LeetCodeSolutions.Tests
                 Assert.Equal(expected[i], result[i]);
             }
         }
+
+        [Theory]
+        [InlineData(
+          new int[] { 1, 1, 2 },
+          new int[] { 1, 2 })]
+        [InlineData(
+          new int[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 },
+          new int[] { 0, 1, 2, 3, 4 })]
+        public void RemoveDuplicatesTest(int[] inputArr, int[] expectedArr)
+        {
+            //Arrange & Act
+            var sut = new InPlace();
+            int[] result = sut.RemoveDuplicates(inputArr);
+
+            //Assert
+            for (int i = 0; i < expectedArr.Length; i++)
+            {
+                Assert.Equal(expectedArr[i], result[i]);
+            }
+
+        }
+
+        [Theory]
+        [InlineData(
+          new int[] { 1, 1, 2 },
+          new int[] { 1, 2 })]
+        [InlineData(
+          new int[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 },
+          new int[] { 0, 1, 2, 3, 4 })]
+        public void CopyWithRemovedDuplicatesTest(int[] nums, int[] expectedArr)
+        {
+            //Arrange & Act
+            var sut = new InPlace();
+            int[] result = sut.CopyWithRemovedDuplicates(nums);
+
+            //Assert
+            for (int i = 0; i < expectedArr.Length; i++)
+            {
+                Assert.Equal(expectedArr[i], result[i]);
+            }
+        }
     }
 }

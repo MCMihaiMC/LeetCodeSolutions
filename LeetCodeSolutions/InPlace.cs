@@ -40,13 +40,13 @@ namespace LeetCodeSolutions
         {
             var maxValue = 0;
 
-            for (int i = arr.Length-1; i >= 0; i--)
+            for (int i = arr.Length - 1; i >= 0; i--)
             {
                 if (arr[i] > maxValue)
                 {
                     int tempValue = arr[i];
 
-                    if(maxValue == 0)
+                    if (maxValue == 0)
                     {
                         arr[i] = -1;
                     }
@@ -65,6 +65,73 @@ namespace LeetCodeSolutions
 
             return arr;
 
+        }
+
+        /// <summary>
+        /// https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3256/
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public int[] RemoveDuplicates(int[] nums)
+        {
+            int arrLength = nums.Length;
+
+            for (int i = arrLength - 2; i >= 0; i--)
+            {
+                if (nums[i] == nums[i + 1])
+                {
+                    for (int j = i + 1; j < arrLength; j++)
+                    {
+                        nums[j - 1] = nums[j];
+                    }
+                    arrLength--;
+                    Array.Resize(ref nums, arrLength);
+                }
+            }
+
+            return nums;
+        }
+
+        /// <summary>
+        /// https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3256/
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public int[] CopyWithRemovedDuplicates(int[] nums)
+        {
+            // Check for edge cases.
+            if (nums == null || nums.Length == 0)
+                return nums;
+
+            // Count how many unique elements are in the Array.
+            int uniqueNumbers = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                // An element should be counted as unique if it's the first
+                // element in the Array, or is different to the one before it.
+                if (i == 0 || nums[i] != nums[i - 1])
+                {
+                    uniqueNumbers++;
+                }
+            }
+
+            // Create a result Array.
+            int[] result = new int[uniqueNumbers];
+
+            // Write the unique elements into the result Array.
+            int positionInResult = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                // Same condition as in the previous loop. Except this time, we can write
+                // each unique number into the result Array instead of just counting them.
+                if (i == 0 || nums[i] != nums[i - 1])
+                {
+                    result[positionInResult] = nums[i];
+                    positionInResult++;
+                }
+            }
+
+            return result;
         }
     }
 }
