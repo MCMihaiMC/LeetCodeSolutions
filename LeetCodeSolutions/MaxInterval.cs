@@ -7,12 +7,19 @@ namespace LeetCodeSolutions
     // TEST OPIS
     public class MaxInterval
     {
+        /// <summary>
+        /// Add problem link
+        /// </summary>
+        /// <param name="excludedNumbers"></param>
+        /// <param name="l"></param>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public static int MaximumNumbersInInterval(List<int> excludedNumbers, int l, int r)
         {
             excludedNumbers.Sort();
             int countNums = 0;
             int max = int.MinValue;
-            // Verify each cases
+            // Verify edge cases
  
             for(int i = 1; i < excludedNumbers.Count(); i++)
             {
