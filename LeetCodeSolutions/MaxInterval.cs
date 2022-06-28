@@ -9,6 +9,30 @@ namespace LeetCodeSolutions
     {
         public static int MaximumNumbersInInterval(List<int> excludedNumbers, int l, int r)
         {
+            excludedNumbers.Sort();
+            int countNums = 0;
+            int max = int.MinValue;
+            // Verify each cases
+ 
+            for(int i = 1; i < excludedNumbers.Count(); i++)
+            {
+                // Mark the border
+                if (excludedNumbers[i] > r)
+                    break;
+
+                if (excludedNumbers[i] < l)
+                    continue;
+
+                countNums = excludedNumbers[i] - excludedNumbers[i - 1] - 1;
+
+                if (max < countNums)
+                    max = countNums;
+            }
+
+            return max;
+
+            #region bad solution
+            /*
             // l = lower; r = upper;
             int initialIndex = 0;
             int numbersInInterval = initialIndex;
@@ -54,6 +78,8 @@ namespace LeetCodeSolutions
             // Extract maximum value from created array intervalNumbers[n]
             int result = intervalNumbers.Max();
             return result;
+            */
+            #endregion
         }
     }
 }
