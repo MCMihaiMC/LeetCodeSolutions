@@ -36,6 +36,11 @@ namespace LeetCodeSolutions
 
         #endregion
 
+        /// <summary>
+        /// https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3259/
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <returns></returns>
         public int[] ReplaceElements(int[] arr)
         {
             var maxValue = 0;
