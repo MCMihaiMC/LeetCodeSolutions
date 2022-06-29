@@ -133,5 +133,31 @@ namespace LeetCodeSolutions
 
             return result;
         }
+
+        /// <summary>
+        /// https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3258/
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public int RemoveDuplicatesFromSortedArray(int[] nums)
+        {
+            var index = 1;
+
+            // Check for edge cases.
+            if (nums == null || nums.Length == 0)
+                return nums.Length;
+
+            for(int i = 0; i < nums.Length - 1; i++)
+            {
+                if(nums[i] != nums[i+1])
+                {
+                    nums[index] = nums[i+1];
+                    index++;
+                }
+            }
+
+            return index;
+        }
     }
+
 }
