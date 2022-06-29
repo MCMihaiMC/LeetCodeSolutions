@@ -104,5 +104,26 @@ namespace LeetCodeSolutions.Tests
                 Assert.Equal(expected[i], nums[i]);
             }
         }
+
+        [Theory]
+        [InlineData(
+          new int[] { 0, 1, 0, 3, 12 },
+          new int[] { 1, 3, 12, 0, 0 })]
+        [InlineData(
+          new int[] { 0 },
+          new int[] { 0 })]
+        public void MoveZeroesTest(int[] nums, int[] expected)
+        {
+            //Arrange & Act
+            var sut = new InPlace();
+            sut.MoveZeroes(nums);
+
+
+            //Assert
+            for (int i = 0; i < expected.Length; i++)
+            {
+                Assert.Equal(expected[i], nums[i]);
+            }
+        }
     }
 }

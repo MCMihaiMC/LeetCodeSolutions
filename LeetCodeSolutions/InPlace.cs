@@ -163,6 +163,30 @@ namespace LeetCodeSolutions
 
             return index;
         }
+
+        /// <summary>
+        /// https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3157/
+        /// </summary>
+        /// <param name="nums"></param>
+        public void MoveZeroes(int[] nums)
+        {
+            var index = 0;
+
+            for(int i = 0; i < nums.Length; i++)
+            {
+                if(nums[i] != 0)
+                {
+                    nums[index] = nums[i];
+                    index++;
+                }
+            }
+
+            for(int j = index; j < nums.Length; j++)
+            {
+                nums[j] = 0;
+            }
+
+        }
     }
 
 }
