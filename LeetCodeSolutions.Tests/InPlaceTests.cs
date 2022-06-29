@@ -118,11 +118,31 @@ namespace LeetCodeSolutions.Tests
             var sut = new InPlace();
             sut.MoveZeroes(nums);
 
-
             //Assert
             for (int i = 0; i < expected.Length; i++)
             {
                 Assert.Equal(expected[i], nums[i]);
+            }
+        }
+
+        [Theory]
+        [InlineData(
+          new int[] { 3, 1, 2, 4 },
+          new int[] { 2, 4, 3, 1 })]
+        [InlineData(
+          new int[] { 0 },
+          new int[] { 0 })]
+        public void SortArrayByParityTest(int[] nums, int[] expected)
+        {
+            // The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.
+            //Arrange & Act
+            var sut = new InPlace();
+            int[] result = sut.SortArrayByParity(nums);
+
+            //Assert
+            for (int i = 0; i < expected.Length; i++)
+            {
+                Assert.Equal(expected[i], result[i]);
             }
         }
     }

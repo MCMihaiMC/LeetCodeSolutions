@@ -187,6 +187,34 @@ namespace LeetCodeSolutions
             }
 
         }
+
+        /// <summary>
+        /// https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3260/
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public int[] SortArrayByParity(int[] nums)
+        {
+            int index = 0;
+            int rotateValue = 0;
+
+            // Check for edge cases.
+            if (nums == null || nums.Length == 0)
+                return new int[0];
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if(nums[i] % 2 == 0)
+                {
+                    rotateValue = nums[index];
+                    nums[index] = nums[i];
+                    nums[i] = rotateValue;
+                    index++;
+                }
+            }
+
+            return nums;
+        }
     }
 
 }
