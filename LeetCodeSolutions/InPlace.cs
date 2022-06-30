@@ -258,7 +258,11 @@ namespace LeetCodeSolutions
                         i--;
                     }
                     else
+                    {
+                        if(i+index == arrLength)
+                            index++;
                         break;
+                    }
 
                     index++;
                 }
