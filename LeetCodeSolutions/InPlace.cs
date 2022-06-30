@@ -270,6 +270,50 @@ namespace LeetCodeSolutions
 
             return nums.Length - index;
         }
+
+
+        public int RemoveElementCarmenWay(int[] nums, int val)
+        {
+            var left = 0;
+            var right = nums.Length - 1;
+            //validation
+            if (nums.Length == 0)
+                return 0;
+
+            while (left < right)
+            {
+                if (nums[right] == val)
+                {
+                    right--;
+                    continue;
+                }
+
+                if (nums[left] != val)
+                {
+                    left++;
+                    continue;
+                }
+
+                if (nums[left] == val)
+                {
+                    if (nums[right] == val)
+                    {
+                        right--;
+                        continue;
+                    }
+
+                    var temp = nums[left];
+                    nums[left] = nums[right];
+                    nums[right] = temp;
+                    right--;
+                }
+            }
+
+            if (nums[right] == val) return left;
+            return left + 1;
+        }
+
+
     }
 
 }

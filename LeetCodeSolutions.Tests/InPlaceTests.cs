@@ -7,7 +7,7 @@ namespace LeetCodeSolutions.Tests
         [Theory]
         [InlineData(
            new int[] { 9, -2, -9, 11, 56, -12, -3 }, 7,
-           new int[] { 81, -2, 81, 11, 3136, -12, 9 } )]
+           new int[] { 81, -2, 81, 11, 3136, -12, 9 })]
         public void SquareEvenTest(int[] arr, int len, int[] expected)
         {
             //Arrange & Act
@@ -177,8 +177,36 @@ namespace LeetCodeSolutions.Tests
             }
         }
 
-        // Resolve also last case new int[] { 4, 5 }, 5 => new int[] { 4 }, 1)]
+        [Theory]
+        [InlineData(
+            new int[] { 3, 2, 2, 3 }, 3,
+            new int[] { 2, 2, 3, 3 }, 2)]
+        [InlineData(
+            new int[] { 0, 1, 2, 2, 3, 0, 4, 2 }, 2,
+            new int[] { 0, 1, 4, 0, 3 }, 5)]
+        [InlineData(
+            new int[] { 3, 3 }, 3,
+            new int[] { }, 0)]
+        [InlineData(
+            new int[] { 1 }, 1,
+            new int[] { }, 0)]
+        [InlineData(
+            new int[] { 4, 5 }, 5,
+            new int[] { 4 }, 1)]
+        public void RemoveElementCarmenWayTest(int[] nums, int val, int[] expected, int expectedOutput)
+        {
+            //Arrange & Act
+            var sut = new InPlace();
+            int result = sut.RemoveElementCarmenWay(nums, val);
 
+            //Assert
+            Assert.Equal(expectedOutput, result);
+
+            for (int i = 0; i < expectedOutput; i++)
+            {
+                Assert.Equal(expected[i], nums[i]);
+            }
+        }
 
     }
 }
