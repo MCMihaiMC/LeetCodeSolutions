@@ -152,11 +152,11 @@ namespace LeetCodeSolutions
             if (nums == null || nums.Length == 0)
                 return nums.Length;
 
-            for(int i = 0; i < nums.Length - 1; i++)
+            for (int i = 0; i < nums.Length - 1; i++)
             {
-                if(nums[i] != nums[i+1])
+                if (nums[i] != nums[i + 1])
                 {
-                    nums[index] = nums[i+1];
+                    nums[index] = nums[i + 1];
                     index++;
                 }
             }
@@ -172,16 +172,16 @@ namespace LeetCodeSolutions
         {
             var index = 0;
 
-            for(int i = 0; i < nums.Length; i++)
+            for (int i = 0; i < nums.Length; i++)
             {
-                if(nums[i] != 0)
+                if (nums[i] != 0)
                 {
                     nums[index] = nums[i];
                     index++;
                 }
             }
 
-            for(int j = index; j < nums.Length; j++)
+            for (int j = index; j < nums.Length; j++)
             {
                 nums[j] = 0;
             }
@@ -196,7 +196,6 @@ namespace LeetCodeSolutions
         public int[] SortArrayByParity(int[] nums)
         {
             int index = 0;
-            int rotateValue = 0;
 
             // Check for edge cases.
             if (nums == null || nums.Length == 0)
@@ -204,9 +203,9 @@ namespace LeetCodeSolutions
 
             for (int i = 0; i < nums.Length; i++)
             {
-                if(nums[i] % 2 == 0)
+                if (nums[i] % 2 == 0)
                 {
-                    rotateValue = nums[index];
+                    int rotateValue = nums[index];
                     nums[index] = nums[i];
                     nums[i] = rotateValue;
                     index++;
@@ -214,6 +213,58 @@ namespace LeetCodeSolutions
             }
 
             return nums;
+        }
+
+        /// <summary>
+        /// https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3575/
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public int RemoveElement(int[] nums, int val)
+        {
+            int index = 0;
+            int arrLength = nums.Length - 1;
+            bool sameNumbersAsVal = false;
+
+            // Edge cases
+            if (arrLength == 0 && val == 1)
+                return arrLength;
+
+            for(int i = 0; i <= arrLength; i++)
+            {
+                if (nums[i] != val)
+                {
+                    sameNumbersAsVal = false;
+                    break;
+                }
+                else
+                    sameNumbersAsVal = true;
+            }
+
+            if (sameNumbersAsVal)
+                return 0;
+            // End of edge cases
+
+            for (int i = 0; i <= arrLength; i++)
+            {
+                if (nums[i] == val)
+                {
+                    if (i + index < arrLength)
+                    {
+                        int movedVal = nums[i];
+                        nums[i] = nums[arrLength - index];
+                        nums[arrLength - index] = movedVal;
+                        i--;
+                    }
+                    else
+                        break;
+
+                    index++;
+                }
+            }
+
+            return nums.Length - index;
         }
     }
 

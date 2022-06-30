@@ -145,5 +145,40 @@ namespace LeetCodeSolutions.Tests
                 Assert.Equal(expected[i], result[i]);
             }
         }
+
+        [Theory]
+        [InlineData(
+          new int[] { 3, 2, 2, 3 }, 3,
+          new int[] { 2, 2, 3, 3 }, 2)]
+        [InlineData(
+          new int[] { 0, 1, 2, 2, 3, 0, 4, 2 }, 2,
+          new int[] { 0, 1, 4, 0, 3 }, 5)]
+        [InlineData(
+          new int[] { 3, 3 }, 3,
+          new int[] { }, 0)]
+        [InlineData(
+          new int[] { 1 }, 1,
+          new int[] { }, 0)]
+        [InlineData(
+          new int[] { 4, 5 }, 5,
+          new int[] { 4 }, 1)]
+        public void RemoveElementTest(int[] nums, int val, int[] expected, int expectedOutput)
+        {
+            //Arrange & Act
+            var sut = new InPlace();
+            int result = sut.RemoveElement(nums, val);
+
+            //Assert
+            Assert.Equal(expectedOutput, result);
+
+            for (int i = 0; i < expectedOutput; i++)
+            {
+                Assert.Equal(expected[i], nums[i]);
+            }
+        }
+
+        // Resolve also last case new int[] { 4, 5 }, 5 => new int[] { 4 }, 1)]
+
+
     }
 }
