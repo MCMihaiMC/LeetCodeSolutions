@@ -272,6 +272,12 @@ namespace LeetCodeSolutions
             return nums.Length - index;
         }
 
+        /// <summary>
+        /// https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3575/
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
         public int RemoveElementCarmenWay(int[] nums, int val)
         {
             var left = 0;
