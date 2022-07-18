@@ -338,6 +338,24 @@ namespace LeetCodeSolutions
             return missingNumsList;
         }
 
+        /// <summary>
+        /// https://leetcode.com/explore/learn/card/fun-with-arrays/523/conclusion/3270/
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public int[] SortedSquares(int[] nums)
+        {
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                nums[i] = nums[i] * nums[i];
+            }
+
+            Array.Sort(nums);
+
+            return nums;
+        }
+
     }
 
 }
