@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LeetCodeSolutions
@@ -271,7 +272,6 @@ namespace LeetCodeSolutions
             return nums.Length - index;
         }
 
-
         public int RemoveElementCarmenWay(int[] nums, int val)
         {
             var left = 0;
@@ -313,6 +313,30 @@ namespace LeetCodeSolutions
             return left + 1;
         }
 
+        /// <summary>
+        /// https://leetcode.com/explore/learn/card/fun-with-arrays/523/conclusion/3270/
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public IList<int> FindDisappearedNumbers(int[] nums)
+        {
+            var missingNumsList = new List<int>();
+
+            int maxValue = nums.Max();
+
+            if (maxValue < nums.Length)
+                maxValue = nums.Length;
+
+            for(int i = 1; i <= maxValue; i++)
+            {
+                if(!nums.Contains(i))
+                {
+                    missingNumsList.Add(i);
+                }
+            }
+
+            return missingNumsList;
+        }
 
     }
 

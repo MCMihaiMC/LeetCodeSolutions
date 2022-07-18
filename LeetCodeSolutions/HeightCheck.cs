@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LeetCodeSolutions
 {
+    /// <summary>
+    /// https://leetcode.com/explore/learn/card/fun-with-arrays/523/conclusion/3270/
+    /// </summary>
     public class HeightCheck
     {
         public int HeightChecker(int[] heights)

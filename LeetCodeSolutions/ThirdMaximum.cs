@@ -1,8 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 namespace LeetCodeSolutions
 {
+    /// <summary>
+    /// https://leetcode.com/explore/learn/card/fun-with-arrays/523/conclusion/3270/
+    /// </summary>
     public class ThirdMaximum
     {
         public int ThirdMax(int[] nums)

@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System.Collections.Generic;
+using Xunit;
 
 namespace LeetCodeSolutions.Tests
 {
@@ -206,6 +207,27 @@ namespace LeetCodeSolutions.Tests
             {
                 Assert.Equal(expected[i], nums[i]);
             }
+        }
+
+        [Theory]
+        [InlineData(
+            new int[] { 4, 3, 2, 7, 8, 2, 3, 1 },
+            new int[] { 5, 6 })]
+        [InlineData(
+            new int[] { 1, 1 },
+            new int[] { 2 })]
+        public void FindDisappearedNumbersTest(int[] nums, int[] expected)
+        {
+            //Arrange & Act
+            var sut = new InPlace();
+            IList<int> result = sut.FindDisappearedNumbers(nums);
+
+            //Assert
+            for (int i = 0; i < expected.Length; i++)
+            {
+                Assert.Equal(expected[i], result[i]);
+            }
+
         }
 
     }
